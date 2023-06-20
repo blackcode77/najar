@@ -1,11 +1,48 @@
+@import "vars"
 @import "fonts"
 @import "shortcuts"
 
+p,
+ol,
+ul,
+li,
+dl,
+dt,
+dd,
+blockquote,
+figure,
+fieldset,
+legend,
+textarea,
+pre,
+iframe,
+hr,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+  margin: 0
+  padding: 0
 html
   font-family: 'Roboto-Regular', Sans-serif, serif
   font-size: 16px
   position: relative
   z-index: 10000
-  .inner-container
-    max-width: 1170px
-    margin: 0 auto
+  body
+    margin: 0
+.container
+  display: block
+  max-width: 1170px
+  margin: 0 auto
+  padding-left: 20px
+  padding-right: 20px
+.delimiter-border
+  display: inline-block
+  border-top: 1px solid #ffffff26
+.link
+  text-decoration: unset
+  color: #ffffff
+  &:hover
+    color: $accent-text

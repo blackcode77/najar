@@ -15,6 +15,12 @@
 //  FONT
 .bold
   font-weight: bold
+.fz-16
+  font-size: 16px
+.fz-20
+  font-size: 20px
+.fz-25
+  font-size: 25px
 .fz-30
   font-size: 30px
 
@@ -23,13 +29,52 @@
   margin-right: 10px
 .mt-30
   margin-top: 30px
+.mb-10
+  margin-bottom: 10px
+.mb-18
+  margin-bottom: 18px
+.mb-20
+  margin-bottom: 20px
+.mt-15
+  margin-top: 15px
+.mt-20
+  margin-top: 20px
+.pt-10
+  padding-top: 10px
+
+.text-lighter
+  font-family: "Roboto-Light", Sans-serif, serif
+  font-weight: lighter
+.text-right
+  text-align: right
 
 //  DISPLAY
 .d-flex
   display: flex
+  &.justify-center
+    justify-content: center
   &.justify-around
     justify-content: space-around
   &.justify-between
     justify-content: space-between
   &.items-center
     align-items: center
+  &.items-between
+    justify-content: space-between
+.d-inline-block
+  display: inline-block
+
+// FLOAT
+.float-right
+  float: right
+.float-left
+  float: left
+
+// HIDDEN
+.page
+  &.md
+    .md-hidden
+      display: none
+  &.lg
+    .lg-hidden
+      display: none
