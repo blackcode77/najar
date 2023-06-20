@@ -9,9 +9,9 @@
     </main>
 
     <footer>
-      <div class="footer-items">
+      <div class="footer-items container">
         <div class="footer-items_inner container relative">
-          <div class="d-flex items-between mb-10">
+          <div class="footer-items_inner-container d-flex items-between mb-10">
             <div class="footer-item">
               <div class="d-flex items-center mb-20">
                 <NajarLogo width="50" height="50" class="mr-10" />
@@ -164,9 +164,22 @@ export default {
         padding: 40px 0 20px 0
     .footer-item
       padding-right: 30px
+      min-width: 180px
       .footer-item_link
         padding-top: 12px
       .footer-item_data
         a
           display: block
+  .sm, .xs
+    .footer-item
+      min-width: 180px
+      margin-bottom: 20px
+    .footer-items_inner-container
+      flex-direction: row
+      flex-wrap: wrap
+      justify-content: flex-start
+  .xs
+    .footer-item
+      min-width: 100%
+      padding-right: unset
 </style>

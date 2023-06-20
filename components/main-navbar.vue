@@ -92,6 +92,8 @@ export default {
         color: $accent-text !important
   .page
     &.sm, &.xs
+      .el-menu
+        border-right: unset
       nav
         position: fixed
         top: 0
