@@ -101,6 +101,7 @@ export default {
         bottom: 0
         background-color: black
         padding-top: 30px
+        z-index: 10000
         &.main-menu__close
           display: none
     &.sm

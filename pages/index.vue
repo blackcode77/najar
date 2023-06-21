@@ -5,37 +5,46 @@
         <div class="main-bg_image"></div>
       </div>
 
-      <div class="relative-flow">
-        <div class="service-items_outer white">
-          <div class="service-items_inner">
-            <span>Shipping</span>
+      <div class="main-info relative-flow">
+       <div class="container white">
+         <p class="main-info_p1 ext-uppercase mb-10">We are provide best services</p>
 
-            <span>Freight forwarding service</span>
+         <p class="main-info_p2 text-uppercase fz-30 bold mb-10">World wide</p>
 
-            <span>Project logistic</span>
+         <p class="main-info_p3 text-uppercase fz-50 bold mb-10">Best shipping</p>
 
-            <span>Agency service</span>
-
-            <span>customs brokerage</span>
-
-          </div>
-        </div>
+         <p class="main-info_p4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores maxime officiis praesentium, quaerat quis quo quos reiciendis repellendus temporibus.</p>
+       </div>
       </div>
     </section>
 
-    <div style="min-height: 400px">
-      12
-    </div>
+    <ServicesSection />
+
+    <AboutSection />
+
+    <WhyWeSection />
+
+    <NumbersSection />
   </div>
 </template>
 
 <script>
+import NumbersSection from "@/components/NumbersSection";
+import ServicesSection from "@/components/ServicesSection";
+import AboutSection from "@/components/AboutSection";
+import WhyWeSection from "@/components/WhyWeSection";
 export default {
-  name: 'IndexPage'
+  name: 'IndexPage',
+  components: {WhyWeSection, AboutSection, ServicesSection, NumbersSection}
 }
 </script>
 
 <style lang="sass">
+  .main-info
+    padding: 0 30px  100px 100px
+    .main-info_p4
+      max-width: 400px
+
   .index-section-top
     background-image: url("@/assets/imgs/containers.jpg")
     background-position: center center

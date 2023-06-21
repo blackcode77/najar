@@ -16,9 +16,9 @@
               <div class="d-flex items-center mb-20">
                 <NajarLogo width="50" height="50" class="mr-10" />
 
-                <span class="fz-30 accent-main-color bold white">
-                NAJAR <span class="accent-text">LTD</span>
-              </span>
+                <span class="fz-30 accent-main-color bold white no-wrap">
+                  NAJAR <span class="accent-text">LTD</span>
+                </span>
               </div>
 
               <div class="mb-18">
@@ -137,13 +137,8 @@ export default {
 <style lang="sass">
   .page
     min-height: 100vh
-  main
-    margin-bottom: 400px
   footer
-    position: absolute
-    bottom: 0
-    left: 0
-    right: 0
+    position: relative
     background-image: url("@/assets/imgs/sea.jpg")
     background-position: center center
     background-size: cover
