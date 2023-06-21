@@ -1,8 +1,6 @@
 <template>
-  <div :class="[sizeType]" class="page pt-10">
-    <div class="container mt-15">
-      <Navbar />
-    </div>
+  <div v-loading="isDataLoading" :class="[sizeType]" class="page">
+    <Navbar />
 
     <main>
       <Nuxt />
@@ -81,10 +79,17 @@
 
           <p class="white text-right text-lighter">
             Copyright © 2023. All rights reserved.
+            <i
+              @click="login"
+              :class="{'el-icon-lock': !isLogged, 'el-icon-unlock': isLogged}"
+              class="accent-text pointer"
+            ></i>
           </p>
         </div>
       </div>
     </footer>
+
+    <PageElementEditor />
   </div>
 </template>
 
@@ -92,17 +97,24 @@
 
 import { mapState } from 'vuex';
 import Navbar from "~/components/main-navbar";
+import SiteMixin from '~/mixins/page-data-mixin'
+import PageElementEditor from "@/components/PageElementEditor";
 
 export default {
-  components: {Navbar},
+  components: {PageElementEditor, Navbar},
+
+  mixins: [SiteMixin],
 
   data: () => ({
-    sizeType: ''
+    sizeType: null,
   }),
 
   computed: {
     ...mapState({
       windowSizeType: state => state.modules.common.window.sizeType,
+      pageYOffset: state => state.modules.common.window.pageYOffset,
+      isDataLoading: state => state.modules.common.site.isLoading,
+      isLogged: state => state.modules.common.user.isLogged,
     }),
 
     isScrolling() {
@@ -121,10 +133,18 @@ export default {
   },
 
   mounted() {
+    this.load()
     this.setWindowType()
   },
 
   methods: {
+    login() {
+      this.$store.commit('modules/common/user/LOGIN', true)
+    },
+    load() {
+      this.$store.dispatch('modules/common/site/FETCH_DATA')
+    },
+
     setWindowType() {
       if (process.client) {
         this.sizeType = this.windowSizeType
@@ -137,6 +157,8 @@ export default {
 <style lang="sass">
   .page
     min-height: 100vh
+  main
+    padding-top: 58px
   footer
     position: relative
     background-image: url("@/assets/imgs/sea.jpg")

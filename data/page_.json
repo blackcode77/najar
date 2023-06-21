@@ -1,0 +1,17 @@
+{
+  "site": {
+    "title": "title",
+    "pages": {
+      "main": {
+        "sections": {
+          "top": {
+            "title1": "We are provide best services",
+            "title2": "WORLD WIDE",
+            "title3": "BEST SHIPPING",
+            "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita maiores maxime officiis praesentium, quaerat quis quo quos reiciendis repellendus temporibus."
+          }
+        }
+      }
+    }
+  }
+}

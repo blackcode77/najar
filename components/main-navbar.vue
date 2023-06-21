@@ -1,64 +1,77 @@
 <template>
-  <header class="d-flex items-center justify-between">
-    <div class="main-logo d-flex items-center">
-      <NajarLogo width="50" height="50" class="mr-10" />
+  <div :class="{'header-container__dark': pageYOffset > 40}" class="header-container">
+    <div class="container">
+      <header class="d-flex items-center justify-between">
+        <div class="main-logo d-flex items-center">
+          <NajarLogo width="50" height="50" class="mr-10" />
 
-      <span class="fz-30 accent-main-color bold white">
-        NAJAR <span class="accent-text">LTD</span>
-      </span>
+          <span @click="edit('site.logo.part1', 'simple')"
+                :class="{'editable': editMode}" class="fz-30 mr-10 accent-main-color bold white">
+            {{ resolveData('site.logo.part1') }}
+          </span>
+
+          <span @click="edit('site.logo.part2', 'simple')"
+                :class="{'editable': editMode}" class="accent-text fz-30">
+            {{ resolveData('site.logo.part2') }}
+          </span>
+        </div>
+
+        <nav :class="{'main-menu__close': isMenuClose}" class="main-menu white">
+          <div @click="isMenuClose = true" class="close-menu md-hidden lg-hidden white fz-25 float-right d-inline-block">
+            <i class="el-icon-close"></i>
+          </div>
+
+          <el-menu
+              :default-active="activeIndex2"
+              class="main-menu_inner"
+              :mode="menuMode"
+              @select="handleSelect"
+              background-color="unset"
+              text-color="#fff"
+              active-text-color="#ff8c00">
+            <el-menu-item index="1">Home</el-menu-item>
+
+            <el-submenu index="2">
+              <template slot="title">Service</template>
+
+              <el-menu-item index="2-1">Intermodal shipping</el-menu-item>
+
+              <el-menu-item index="2-2">Project logistic</el-menu-item>
+
+              <el-menu-item index="2-3">Ship and cargo agency</el-menu-item>
+
+              <el-menu-item index="2-4">customs clearance services</el-menu-item>
+            </el-submenu>
+
+            <el-menu-item index="3">Schedule and rates</el-menu-item>
+
+            <el-menu-item index="4">Contacts</el-menu-item>
+
+            <el-menu-item index="5">About us</el-menu-item>
+
+
+          </el-menu>
+        </nav>
+
+        <div v-show="isMenuClose" @click="isMenuClose = false" class="hamburger md-hidden lg-hidden">
+          <div class="hamburger-box">
+            <div class="hamburger-inner"></div>
+          </div>
+        </div>
+      </header>
     </div>
+  </div>
 
-    <nav :class="{'main-menu__close': isMenuClose}" class="main-menu white">
-      <div @click="isMenuClose = true" class="close-menu md-hidden lg-hidden white fz-25 float-right d-inline-block">
-        <i class="el-icon-close"></i>
-      </div>
-
-      <el-menu
-          :default-active="activeIndex2"
-          class="main-menu_inner"
-          :mode="menuMode"
-          @select="handleSelect"
-          background-color="unset"
-          text-color="#fff"
-          active-text-color="#ff8c00">
-        <el-menu-item index="1">Home</el-menu-item>
-
-        <el-submenu index="2">
-          <template slot="title">Service</template>
-
-          <el-menu-item index="2-1">Intermodal shipping</el-menu-item>
-
-          <el-menu-item index="2-2">Project logistic</el-menu-item>
-
-          <el-menu-item index="2-3">Ship and cargo agency</el-menu-item>
-
-          <el-menu-item index="2-4">customs clearance services</el-menu-item>
-        </el-submenu>
-
-        <el-menu-item index="3">Schedule and rates</el-menu-item>
-
-        <el-menu-item index="4">Contacts</el-menu-item>
-
-        <el-menu-item index="5">About us</el-menu-item>
-
-
-      </el-menu>
-    </nav>
-
-    <div v-show="isMenuClose" @click="isMenuClose = false" class="hamburger md-hidden lg-hidden">
-      <div class="hamburger-box">
-        <div class="hamburger-inner"></div>
-      </div>
-    </div>
-  </header>
 </template>
 
 <script>
+import {mapState} from "vuex";
 import PageType from "~/mixins/element-mixin";
+import SiteMixin from "@/mixins/page-data-mixin";
 
 export default {
   name: 'MainNavbar',
-  mixins: [PageType],
+  mixins: [PageType, SiteMixin],
   data() {
     return {
       activeIndex: '1',
@@ -72,6 +85,10 @@ export default {
     }
   },
   computed: {
+    ...mapState({
+      pageYOffset: state => state.modules.common.window.pageYOffset,
+    }),
+
     menuMode() {
       return this.pageTypeIs(['sm', 'xs']) ? 'vertical' : 'horizontal'
     }
@@ -82,6 +99,14 @@ export default {
 <style lang="sass">
   @import "@/assets/css/vars"
 
+  .header-container
+    position: fixed
+    z-index: 1000000
+    left: 0
+    right: 0
+    padding: 10px
+    &.header-container__dark
+      background-color: black
   .main-menu_inner
     &.el-menu
       &.el-menu--horizontal
