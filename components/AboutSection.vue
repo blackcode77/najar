@@ -24,30 +24,24 @@
 
     <div class="about-section_info container">
       <div class="about-section_info-block">
-        <EditableData :editor-type="`editor`" :path="`${path}.text`" />
-        <div v-html="resolveData(`${path}.text`)" />
+        <div
+            @click="edit(`${path}.text`, 'editor')"
+            :class="{'editable': editMode}"
+            class="mb-30"
+            v-html="resolveData(`${path}.text`)"
+        />
 
 
         <ul class="about-section_list">
-          <li>
+          <li
+              v-for="(tip, k) in tips"
+              :key="k"
+          >
             <i class="el-icon-info"></i>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing</span>
-          </li>
-          <li>
-            <i class="el-icon-info"></i>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing</span>
-          </li>
-          <li>
-            <i class="el-icon-info"></i>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing</span>
-          </li>
-          <li>
-            <i class="el-icon-info"></i>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing</span>
-          </li>
-          <li>
-            <i class="el-icon-info"></i>
-            <span>Lorem ipsum dolor sit amet, consectetur adipisicing</span>
+            <span
+              @click="edit(tip.path + '.text', 'simple')"
+              :class="{'editable': editMode}"
+            >{{ tip.text }}</span>
           </li>
         </ul>
       </div>
@@ -73,16 +67,18 @@
 
 <script>
 import PageDataMixin from "@/mixins/page-data-mixin";
-import EditableData from "@/components/EditableData";
 
 export default {
   name: 'AboutSection',
-  components: {EditableData},
   mixins: [PageDataMixin],
 
   computed: {
     path() {
       return 'site.pages.main.sections.about_us'
+    },
+
+    tips() {
+      return this.resolveData(`${this.path}.tips`)
     }
   }
 }
