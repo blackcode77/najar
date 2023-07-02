@@ -2,9 +2,21 @@
   <section class="about-section pt-50 mb-20">
     <div class="container mb-20">
       <div class="about-section_inner text-center">
-        <p class="text-uppercase accent-text text-center mb-10">Welcome to NAJAR</p>
+        <p
+          @click="edit(path + '.sub_title', 'simple')"
+          :class="{'editable': editMode}"
+          class="text-uppercase accent-text text-center mb-10"
+        >
+          {{ resolveData(path + '.sub_title') }}
+        </p>
 
-        <h3 class="about-section_title fz-30 text-uppercase bold text-center mb-10">About us</h3>
+        <h3
+          @click="edit(path + '.title', 'simple')"
+          :class="{'editable': editMode}"
+          class="about-section_title fz-30 text-uppercase bold text-center mb-10"
+        >
+          {{ resolveData(path + '.title') }}
+        </h3>
 
         <span class="about-section_delimiter"></span>
       </div>
@@ -12,6 +24,8 @@
 
     <div class="about-section_info container">
       <div class="about-section_info-block">
+        <EditableData :editor-type="`editor`" :path="`${path}.text`" />
+        <div v-html="resolveData(`${path}.text`)" />
         <p class="lh-16 mb-10">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad. Architecto beatae vitae dicta sunting explicabo quae ab illo inventore.
         </p>
@@ -63,8 +77,19 @@
 
 
 <script>
+import PageDataMixin from "@/mixins/page-data-mixin";
+import EditableData from "@/components/EditableData";
+
 export default {
   name: 'AboutSection',
+  components: {EditableData},
+  mixins: [PageDataMixin],
+
+  computed: {
+    path() {
+      return 'site.pages.main.sections.about_us'
+    }
+  }
 }
 </script>
 

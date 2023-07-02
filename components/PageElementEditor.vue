@@ -6,6 +6,7 @@
       :before-close="closeDialog">
     <div>
       <el-input
+          v-if="type === 'simple'"
           v-model="val"
           placeholder="Please input"
           clearable>
@@ -42,6 +43,8 @@ export default {
   computed: {
     ...mapState({
       editDialogOpen: state => state.modules.common.site.editDialogOpen,
+      type: state => state.modules.common.site.editorType,
+
     }),
 
     menuMode() {

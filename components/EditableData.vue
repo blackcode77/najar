@@ -1,6 +1,6 @@
 <template>
   <i
-    @click="edit(path, 'simple')"
+    @click="edit(path, editorType)"
     :class="{'editable': editMode}"
     class="el-icon-edit"
   >
@@ -20,6 +20,11 @@ export default {
     path: {
       type: String,
       default: null
+    },
+
+    editorType: {
+      type: String,
+      default: 'simple'
     }
   }
 }
