@@ -4,7 +4,8 @@
       <div class="container white">
         <p
             @click="edit('site.pages.main.sections.top.title1', 'simple')"
-            :class="{'editable': editMode}" class="main-info_p1 ext-uppercase mb-10">
+            :class="{'editable': editMode}"
+            class="main-info_p1 ext-uppercase mb-10">
           {{ resolveData('site.pages.main.sections.top.title1') }}
         </p>
 

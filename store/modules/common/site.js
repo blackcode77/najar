@@ -20,7 +20,12 @@ export const getters = {
             const pathItems = path.split('.')
 
             pathItems.forEach(key => {
-                result = result[key]
+                if (key.includes('-')) {
+                    const [key_, index] = key.split('-')
+                    result = result[key_][index]
+                } else {
+                    result = result[key]
+                }
             })
 
             return result
