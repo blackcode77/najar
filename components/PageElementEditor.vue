@@ -11,6 +11,10 @@
           placeholder="Please input"
           clearable>
       </el-input>
+
+      <CkeditorNuxt
+          v-if="type === 'editor'"
+          v-model="val" />
     </div>
 
     <span slot="footer" class="dialog-footer">
@@ -22,10 +26,11 @@
 
 <script>
 import {mapState} from "vuex";
+import CkeditorNuxt from "@/components/CkeditorNuxt";
 
 export default {
   name: 'PageElementEditor',
-
+  components: {CkeditorNuxt},
   data: () => ({
     val: null,
   }),

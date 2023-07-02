@@ -26,12 +26,7 @@
       <div class="about-section_info-block">
         <EditableData :editor-type="`editor`" :path="`${path}.text`" />
         <div v-html="resolveData(`${path}.text`)" />
-        <p class="lh-16 mb-10">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua ut enim ad. Architecto beatae vitae dicta sunting explicabo quae ab illo inventore.
-        </p>
-        <p class="lh-16 mb-20">
-          Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sitong out voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. sunt in culpa qui officia deserunt mollit anim id est laborum
-        </p>
+
 
         <ul class="about-section_list">
           <li>
