@@ -43,16 +43,19 @@ export default {
       type: String,
       required: false
     },
-    config: {
-      type: Object,
-      required: false,
-      default: function () {
-      }
-    }
+    // config: {
+    //   type: Object,
+    //   required: false,
+    //   default: function () {
+    //   }
+    // }
   },
   data() {
     return {
       editor: ClassicEditor,
+      config: {
+        // plugins: ['SourceEditing']
+      }
     }
   },
 };
