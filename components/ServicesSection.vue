@@ -16,7 +16,10 @@
       <div class="service-section-items-wrapper">
         <div v-for="item in items" :key="item.path" class="service-section-item">
           <span class="fz-50 mb-10">
-            <i :class="item.icon"></i>
+            <i
+              @click="edit(item.path + '.icon', 'icons')"
+              :class="[editMode ? 'editable' : '', item.icon]"
+            ></i>
           </span>
 
           <h3
