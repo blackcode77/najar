@@ -15,23 +15,34 @@
                 <NajarLogo width="50" height="50" class="mr-10" />
 
                 <span class="fz-30 accent-main-color bold white no-wrap">
-                  NAJAR <span class="accent-text">LTD</span>
+                  {{ resolveData('site.logo.part1') }} <span class="accent-text">{{ resolveData('site.logo.part2') }}</span>
                 </span>
               </div>
 
               <div class="mb-18">
                 <i class="el-icon-location-information accent-text mr-10"></i>
-                <span class="white">Jl. Sunset Road No.815, Kuta</span>
+                <span
+                    @click="edit(path + '.location', 'simple')"
+                    :class="{'editable': editMode}"
+                    class="white">{{ resolveData(path + '.location') }}</span>
               </div>
 
               <div class="mb-18">
                 <i class="el-icon-message accent-text mr-10"></i>
-                <span class="white">mail@najar.com</span>
+                <span
+                  @click="edit(path + '.email', 'simple')"
+                  :class="{'editable': editMode}"
+                  class="white"
+                >{{ resolveData(path + '.email') }}</span>
               </div>
 
               <div class="mb-18">
                 <i class="el-icon-phone accent-text mr-10"></i>
-                <span class="white">(+89)123-23-67</span>
+                <span
+                  @click="edit(path + '.phone', 'simple')"
+                  :class="{'editable': editMode}"
+                  class="white"
+                >{{ resolveData(path + '.phone') }}</span>
               </div>
             </div>
 
@@ -53,24 +64,24 @@
 
             <div class="footer-item">
               <div class="footer-item_link">
-                <h4 class="fz-20 accent-text">Useful Links</h4>
-
-                <div class="delimiter-border" style="width: 70px;"></div>
-              </div>
-            </div>
-
-            <div class="footer-item">
-              <div class="footer-item_link">
                 <h4 class="fz-20 accent-text">Work hours</h4>
 
                 <div class="delimiter-border" style="width: 70px;"></div>
 
                 <div class="mb-18 mt-15">
                   <i class="el-icon-time accent-text mr-10"></i>
-                  <span class="white">9 AM - 5 PM , Monday - Saturday</span>
+                  <span
+                    @click="edit(path + '.work_hours', 'simple')"
+                    :class="{'editable': editMode}"
+                    class="white"
+                  >{{ resolveData(path + '.work_hours') }}</span>
                 </div>
 
-                <p class="white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, culpa</p>
+                <p
+                  @click="edit(path + '.work_hours_info', 'simple')"
+                  :class="{'editable': editMode}"
+                  class="white"
+                >{{ resolveData(path + '.work_hours_info') }}</p>
               </div>
             </div>
           </div>
@@ -123,7 +134,11 @@ export default {
 
     pageName() {
       return this.$route.name
-    }
+    },
+
+    path() {
+      return 'site.footer'
+    },
   },
 
   watch: {
