@@ -117,6 +117,13 @@ export default {
         color: $accent-text !important
   .page
     &.sm, &.xs
+      .main-info
+        padding: unset
+        padding-bottom: 100px
+      .main-logo
+      .main-logo
+        span
+          font-size: 20px
       .el-menu
         border-right: unset
       nav
@@ -127,14 +134,15 @@ export default {
         background-color: black
         padding-top: 30px
         z-index: 10000
+        min-width: 300px
         &.main-menu__close
           display: none
     &.sm
-      nav
-        min-width: 300px
     &.xs
       nav
         min-width: 100%
+        .close-menu
+          margin-right: 20px
     .close-menu
       padding: 5px
       margin-top: -30px

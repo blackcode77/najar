@@ -2,13 +2,13 @@
   <div>
     <MainSection />
 
-    <ServicesSection />
+    <ServicesSection v-if="false" />
 
-    <AboutSection />
+    <AboutSection v-if="false" />
 
-    <WhyWeSection />
+    <WhyWeSection v-if="false" />
 
-    <NumbersSection />
+    <NumbersSection v-if="false" />
   </div>
 </template>
 

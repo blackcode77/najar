@@ -4,9 +4,8 @@ COPY package*.json ./
 RUN npm ci
 COPY ./ .
 RUN npm run build
-CMD ["npm", "run", "start"]
 
 FROM nginx as production-stage
 RUN mkdir /app
-COPY ./ /app
+COPY --from=build-stage /app/dist /app
 COPY nginx.conf /etc/nginx/nginx.conf
