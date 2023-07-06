@@ -8,7 +8,12 @@
 
     <div class="service-section" style="min-height: 400px">
       <div class="container">
-        Foo
+        <div
+            @click="edit(path + '.data', 'editor')"
+            :class="{'editable': editMode}"
+            v-html="resolveData(`${path}.data`)"
+        />
+
       </div>
     </div>
   </div>
@@ -21,7 +26,13 @@ import MainSection from "@/components/MainSection";
 export default {
   name: 'ShippingPage',
   mixins: [SiteMixin],
-  components: { MainSection }
+  components: { MainSection },
+
+  computed: {
+    path() {
+      return 'site.pages.services.shipping'
+    }
+  }
 }
 </script>
 

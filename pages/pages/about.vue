@@ -8,20 +8,33 @@
 
     <div class="service-section" style="min-height: 400px">
       <div class="container">
-        Foo
+        <div
+          @click="edit(path + '.data', 'editor')"
+          :class="{'editable': editMode}"
+          v-html="resolveData(`${path}.data`)"
+        />
+
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import SiteMixin from '~/mixins/page-data-mixin'
+import PageDataMixin from '~/mixins/page-data-mixin'
 import MainSection from "@/components/MainSection";
 
 export default {
   name: 'AboutPage',
-  mixins: [SiteMixin],
-  components: { MainSection }
+
+  mixins: [PageDataMixin],
+
+  components: { MainSection },
+
+  computed: {
+    path() {
+      return 'site.pages.about'
+    }
+  }
 }
 </script>
 
