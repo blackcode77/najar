@@ -85,16 +85,23 @@ export default {
       align-items: self-end
       flex-wrap: wrap
     .service-section-item
-      max-width: 270px
+      width: 260px
       display: flex
       flex-direction: column
       justify-content: center
       align-items: center
+      margin-bottom: 40px
       .service-section_link
         display: inline-block
         padding: 20px
         background-color: $accent-text
         &:hover
           color: black
-
+  //ADAPTIVE
+  .page
+    &.sm, &.xs
+      .service-section-items-wrapper
+    &.xs
+      .service-section-item
+        width: 100%
 </style>

@@ -2,7 +2,7 @@
   <div>
     <MainSection />
 
-    <ServicesSection v-if="false" />
+    <ServicesSection />
 
     <AboutSection v-if="false" />
 
