@@ -55,6 +55,16 @@ export default {
     transpile: [/^element-ui/],
   },
 
+  router: {
+    routes: [
+      {
+        name: 'about',
+        path: '/pages/about',
+        component: 'pages/about.vue'
+      }
+    ]
+  },
+
   serverMiddleware: [
     // Will register file from project server-middleware directory to handle /server-middleware/* requires
     { path: '/api', handler: '~/api/index.js' },

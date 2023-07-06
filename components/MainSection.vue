@@ -1,21 +1,23 @@
 <template>
   <section class="index-section-top mt-30">
-    <div class="main-info relative-flow">
-      <div class="container white">
-        <p
-            @click="edit('site.pages.main.sections.top.title1', 'simple')"
-            :class="{'editable': editMode}"
-            class="main-info_p1 ext-uppercase mb-10">
-          {{ resolveData('site.pages.main.sections.top.title1') }}
-        </p>
+    <slot>
+      <div class="main-info relative-flow">
+        <div class="container white">
+          <p
+              @click="edit('site.pages.main.sections.top.title1', 'simple')"
+              :class="{'editable': editMode}"
+              class="main-info_p1 ext-uppercase mb-10">
+            {{ resolveData('site.pages.main.sections.top.title1') }}
+          </p>
 
-        <p @click="edit('site.pages.main.sections.top.title2', 'simple')" :class="{'editable': editMode}" class="main-info_p2 text-uppercase fz-30 bold mb-10">{{ resolveData('site.pages.main.sections.top.title2') }}</p>
+          <p @click="edit('site.pages.main.sections.top.title2', 'simple')" :class="{'editable': editMode}" class="main-info_p2 text-uppercase fz-30 bold mb-10">{{ resolveData('site.pages.main.sections.top.title2') }}</p>
 
-        <p @click="edit('site.pages.main.sections.top.title3', 'simple')" :class="{'editable': editMode}" class="main-info_p3 text-uppercase fz-50 bold mb-10">{{ resolveData('site.pages.main.sections.top.title3') }}</p>
+          <p @click="edit('site.pages.main.sections.top.title3', 'simple')" :class="{'editable': editMode}" class="main-info_p3 text-uppercase fz-50 bold mb-10">{{ resolveData('site.pages.main.sections.top.title3') }}</p>
 
-        <p @click="edit('site.pages.main.sections.top.text', 'simple')" :class="{'editable': editMode}" class="main-info_p4">{{ resolveData('site.pages.main.sections.top.text') }}</p>
+          <p @click="edit('site.pages.main.sections.top.text', 'simple')" :class="{'editable': editMode}" class="main-info_p4">{{ resolveData('site.pages.main.sections.top.text') }}</p>
+        </div>
       </div>
-    </div>
+    </slot>
   </section>
 </template>
 
@@ -85,4 +87,14 @@ export default {
     width: 100%
   .big-logo
     opacity: .1
+  .page-header
+    text-align: center
+    color: #ffffff
+    font-size: 30px
+    position: relative
+    z-index: 1000
+    padding-bottom: 80px
+    text-transform: uppercase
+    font-weight: bold
+    letter-spacing: 2px
 </style>

@@ -24,32 +24,30 @@
           <el-menu
               :default-active="activeIndex2"
               class="main-menu_inner"
+              :router="true"
               :mode="menuMode"
               @select="handleSelect"
               background-color="unset"
               text-color="#fff"
-              active-text-color="#ff8c00">
-            <el-menu-item index="1">Home</el-menu-item>
+              active-text-color="#ff8c00"
+          >
+            <el-menu-item index="/">Home</el-menu-item>
 
-            <el-submenu index="2">
+            <el-submenu index="/service">
               <template slot="title">Service</template>
 
-              <el-menu-item index="2-1">Intermodal shipping</el-menu-item>
+              <el-menu-item index="/service/shipping">Intermodal shipping</el-menu-item>
 
-              <el-menu-item index="2-2">Project logistic</el-menu-item>
+              <el-menu-item index="/service/logistic">Project logistic</el-menu-item>
 
-              <el-menu-item index="2-3">Ship and cargo agency</el-menu-item>
-
-              <el-menu-item index="2-4">customs clearance services</el-menu-item>
+              <el-menu-item index="/service/cargo">Ship and cargo agency</el-menu-item>
             </el-submenu>
 
-            <el-menu-item index="3">Schedule and rates</el-menu-item>
+            <el-menu-item index="/pages/schedule">Schedule and rates</el-menu-item>
 
-            <el-menu-item index="4">Contacts</el-menu-item>
+            <el-menu-item index="/pages/contacts">Contacts</el-menu-item>
 
-            <el-menu-item index="5">About us</el-menu-item>
-
-
+            <el-menu-item index="/pages/about">About us</el-menu-item>
           </el-menu>
         </nav>
 
@@ -75,19 +73,23 @@ export default {
   data() {
     return {
       activeIndex: '1',
-      activeIndex2: '1',
       isMenuClose: true
     };
   },
   methods: {
     handleSelect(key, keyPath) {
-      console.log(key, keyPath);
+      // const path = key === 'index' ? '' : key.replaceAll('-', '/')
+      // this.$router.push('/' + path)
     }
   },
   computed: {
     ...mapState({
       pageYOffset: state => state.modules.common.window.pageYOffset,
     }),
+
+    activeIndex2 () {
+      return this.$route.path
+    },
 
     menuMode() {
       return this.pageTypeIs(['sm', 'xs']) ? 'vertical' : 'horizontal'
