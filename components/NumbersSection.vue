@@ -72,7 +72,16 @@ export default {
     flex-wrap: wrap
     align-items: center
     justify-content: center
-    width: 25%
+    width: 200px
+.page
+  &.sm, &.xs
+    .numbers-section_inner
+      flex-wrap: wrap
+      .numbers-section_inner-item
+        margin-bottom: 20px
+  &.xs
+    .numbers-section_inner
+      justify-content: center
 
 .el-carousel__item
   border: 1px solid #00000030

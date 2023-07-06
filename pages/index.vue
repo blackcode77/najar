@@ -8,7 +8,7 @@
 
     <WhyWeSection />
 
-    <NumbersSection v-if="false" />
+    <NumbersSection />
   </div>
 </template>
 
