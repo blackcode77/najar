@@ -1,27 +1,29 @@
 <template>
   <section class="numbers-section">
-    <div class="numbers-section_inner container white">
-      <div
-          v-for="(tip, k) in tips"
-          :key="k"
-          class="numbers-section_inner-item"
-      >
+    <div class="container">
+      <div class="numbers-section_inner white">
+        <div
+            v-for="(tip, k) in tips"
+            :key="k"
+            class="numbers-section_inner-item"
+        >
         <span class="fz-50">
           <i
               @click="edit(tip.path + '.icon', 'icons')"
               :class="[editMode ? 'editable' : '', tip.icon]"
           ></i>
         </span>
-        <span
-            @click="edit(tip.path + '.text_bold', 'simple')"
-            :class="{'editable': editMode}"
-            class="bold fz-30"
-        >{{ tip.text_bold }}</span>
+          <span
+              @click="edit(tip.path + '.text_bold', 'simple')"
+              :class="{'editable': editMode}"
+              class="bold fz-30"
+          >{{ tip.text_bold }}</span>
 
-        <span
-            @click="edit(tip.path + '.text_small', 'simple')"
-            :class="{'editable': editMode}"
-        >{{ tip.text_small }}</span>
+          <span
+              @click="edit(tip.path + '.text_small', 'simple')"
+              :class="{'editable': editMode}"
+          >{{ tip.text_small }}</span>
+        </div>
       </div>
     </div>
   </section>

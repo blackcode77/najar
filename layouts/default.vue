@@ -154,7 +154,7 @@ export default {
 
   methods: {
     login() {
-      this.$store.commit('modules/common/user/LOGIN', true)
+      this.$store.commit('modules/common/user/LOGIN', !this.isLogged)
     },
     load() {
       this.$store.dispatch('modules/common/site/FETCH_DATA')

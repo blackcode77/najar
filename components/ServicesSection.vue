@@ -42,6 +42,7 @@
             READ MORE
           </a>
           <Editable
+            v-if="editMode"
             class="p-5px"
             :path="item.path + '.link'"
           >
@@ -81,6 +82,8 @@ export default {
     .service-section-items-wrapper
       display: flex
       justify-content: space-around
+      align-items: self-end
+      flex-wrap: wrap
     .service-section-item
       max-width: 270px
       display: flex
