@@ -1,5 +1,5 @@
 <template>
-  <div v-loading="isDataLoading" :class="[sizeType]" class="page">
+  <div v-if="!isDataLoading" :class="[sizeType]" class="page">
     <Navbar />
 
     <main>
@@ -102,6 +102,9 @@
 
     <PageElementEditor />
   </div>
+  <div class="main-preloader" v-else>
+    <i class="el-icon-loading"></i>
+  </div>
 </template>
 
 <script>
@@ -170,6 +173,7 @@ export default {
 </script>
 
 <style lang="sass">
+  @import "@/assets/css/vars"
   .page
     min-height: 100vh
   main
@@ -214,4 +218,13 @@ export default {
     .footer-item
       min-width: 100%
       padding-right: unset
+  .main-preloader
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 100%
+    height: 100vh
+    .el-icon-loading
+      font-size: 30px
+      color: $accent-text
 </style>

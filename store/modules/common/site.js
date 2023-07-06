@@ -3,7 +3,7 @@ export const state = () => ({
     editDialogOpen: false,
     pathToEdit: null,
     editorType: null,
-    isLoading: false
+    isLoading: true
 })
 
 export const getters = {
