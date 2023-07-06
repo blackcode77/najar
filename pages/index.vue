@@ -6,7 +6,7 @@
 
     <AboutSection />
 
-    <WhyWeSection v-if="false" />
+    <WhyWeSection />
 
     <NumbersSection v-if="false" />
   </div>

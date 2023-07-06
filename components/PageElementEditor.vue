@@ -2,7 +2,6 @@
   <el-dialog
       title="Edit element"
       :visible.sync="editDialogOpen"
-      width="30%"
       :before-close="closeDialog">
     <div>
       <el-input

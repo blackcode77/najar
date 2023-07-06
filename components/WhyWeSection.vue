@@ -1,6 +1,6 @@
 <template>
   <section class="about-section pt-50 mb-20" style="background-color: #f7f7f7;">
-    <div class="container mb-20">
+    <div class="container container__np mb-20">
       <div class="about-section_inner text-center mb-30">
         <p
             @click="edit(path + '.sub_title', 'simple')"
