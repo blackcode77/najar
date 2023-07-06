@@ -4,7 +4,7 @@
 
     <ServicesSection />
 
-    <AboutSection v-if="false" />
+    <AboutSection />
 
     <WhyWeSection v-if="false" />
 

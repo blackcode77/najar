@@ -111,5 +111,12 @@ export default {
         i
           margin-right: 10px
           color: $accent-text
-
+  .page
+    &.sm, &.xs
+    &.xs
+      .about-section_info
+        flex-direction: column
+        align-items: center
+        .about-section_info-block
+          width: 95%
 </style>
