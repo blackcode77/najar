@@ -1,7 +1,7 @@
 export const state = () => ({
     login: 'najar',
     password: 'editme!',
-    isLogged: true
+    isLogged: false
 })
 
 export const getters = {
