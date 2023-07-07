@@ -6,7 +6,7 @@ export default {
   mode: 'universal',
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'najar',
+    title: 'NAJAR',
     htmlAttrs: {
       lang: 'en',
     },
@@ -16,7 +16,7 @@ export default {
       { hid: 'description', name: 'description', content: '' },
       { name: 'format-detection', content: 'telephone=no' },
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/logo.ico' }],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css

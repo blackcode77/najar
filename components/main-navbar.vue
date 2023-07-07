@@ -78,8 +78,9 @@ export default {
   },
   methods: {
     handleSelect(key, keyPath) {
-      // const path = key === 'index' ? '' : key.replaceAll('-', '/')
-      // this.$router.push('/' + path)
+      if (this.pageTypeIs(['sm', 'xs'])) {
+        this.isMenuClose = true
+      }
     }
   },
   computed: {
