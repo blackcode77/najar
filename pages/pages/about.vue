@@ -7,7 +7,7 @@
     </MainSection>
 
     <div class="service-section" style="min-height: 400px">
-      <div class="container">
+      <div class="container page-container">
         <div
           @click="edit(path + '.data', 'editor')"
           :class="{'editable': editMode}"
@@ -39,4 +39,7 @@ export default {
 </script>
 
 <style lang="sass">
+  .page-container
+    padding: 10px 20px
+    max-width: 650px
 </style>

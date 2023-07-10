@@ -1,5 +1,5 @@
 <template>
-  <section class="about-section pt-50 mb-20">
+  <section class="about-section mb-20">
     <div class="container mb-20">
       <div class="about-section_inner text-center">
         <p
@@ -37,11 +37,12 @@
               v-for="(tip, k) in tips"
               :key="k"
           >
-            <i class="el-icon-info"></i>
+            <i class="el-icon-info float-left"></i>
             <span
-              @click="edit(tip.path + '.text', 'simple')"
+              @click="edit(tip.path + '.text', 'editor')"
               :class="{'editable': editMode}"
-            >{{ tip.text }}</span>
+              v-html="tip.text"
+            />
           </li>
         </ul>
       </div>

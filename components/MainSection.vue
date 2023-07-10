@@ -10,7 +10,12 @@
             {{ resolveData('site.pages.main.sections.top.title1') }}
           </p>
 
-          <p @click="edit('site.pages.main.sections.top.title2', 'simple')" :class="{'editable': editMode}" class="main-info_p2 text-uppercase fz-30 bold mb-10">{{ resolveData('site.pages.main.sections.top.title2') }}</p>
+          <p
+            @click="edit('site.pages.main.sections.top.title2', 'simple')"
+            :class="{'editable': editMode}"
+            class="main-info_p2 text-uppercase fz-30 mb-10"
+            style="max-width: 500px; line-height: 1.2em;"
+          >{{ resolveData('site.pages.main.sections.top.title2') }}</p>
 
           <p @click="edit('site.pages.main.sections.top.title3', 'simple')" :class="{'editable': editMode}" class="main-info_p3 text-uppercase fz-50 bold mb-10">{{ resolveData('site.pages.main.sections.top.title3') }}</p>
 

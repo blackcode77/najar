@@ -2,8 +2,12 @@
   <div :class="{'header-container__dark': pageYOffset > 40}" class="header-container">
     <div class="container">
       <header class="d-flex items-center justify-between">
-        <div class="main-logo d-flex items-center">
-          <NajarLogo width="50" height="50" class="mr-10" />
+        <div @click="goToIndex" class="pointer main-logo d-flex items-center">
+          <NajarLogo
+              class="mr-10"
+              width="50"
+              height="50"
+          />
 
           <span @click="edit('site.logo.part1', 'simple')"
                 :class="{'editable': editMode}" class="fz-30 mr-10 accent-main-color bold white">
@@ -77,6 +81,10 @@ export default {
     };
   },
   methods: {
+    goToIndex () {
+      this.$router.push('/')
+    },
+
     handleSelect(key, keyPath) {
       if (this.pageTypeIs(['sm', 'xs'])) {
         this.isMenuClose = true

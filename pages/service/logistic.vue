@@ -7,7 +7,7 @@
     </MainSection>
 
     <div class="service-section" style="min-height: 400px">
-      <div class="container">
+      <div class="container page-container">
         <div
             @click="edit(path + '.data', 'editor')"
             :class="{'editable': editMode}"

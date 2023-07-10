@@ -25,7 +25,7 @@
           <h3
               @click="edit(item.path + '.h3', 'simple')"
               :class="{'editable': editMode}"
-              class="mb-20"
+              class="mb-20 text-uppercase"
           >
             {{ item.h3 }}
           </h3>
@@ -33,14 +33,12 @@
           <p
               @click="edit(item.path + '.p', 'simple')"
               :class="{'editable': editMode}"
-              class="text-center mb-20"
+              class="text-center mb-20 service-section_text"
           >
             {{ item.p }}
           </p>
 
-          <a class="service-section_link white" :href="item.link">
-            READ MORE
-          </a>
+          <router-link class="service-section_link white" :to="item.link">READ MORE</router-link>
           <Editable
             v-if="editMode"
             class="p-5px"
@@ -79,6 +77,11 @@ export default {
     background-image: url("@/assets/imgs/bg-map.png")
     background-position: center center
     background-size: cover
+    .service-section_text
+      overflow: hidden
+      display: -webkit-box
+      -webkit-line-clamp: 3
+      -webkit-box-orient: vertical
     .service-section-items-wrapper
       display: flex
       justify-content: space-around
