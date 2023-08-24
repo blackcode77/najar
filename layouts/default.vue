@@ -53,11 +53,11 @@
                 <div class="delimiter-border" style="width: 70px;"></div>
 
                 <div class="footer-item_data mt-15">
-                  <NuxtLink class="link mb-18" to="/about">About us</NuxtLink>
+                  <NuxtLink class="link mb-18" to="/pages/about">About us</NuxtLink>
 
-                  <NuxtLink class="link mb-18" to="/services">Services</NuxtLink>
+                  <NuxtLink class="link mb-18" to="/service/logistic">Services</NuxtLink>
 
-                  <NuxtLink class="link mb-18" to="/contacts">Contact</NuxtLink>
+                  <NuxtLink class="link mb-18" to="/pages/contacts">Contact</NuxtLink>
                 </div>
               </div>
             </div>
@@ -91,6 +91,7 @@
           <p class="white text-right text-lighter">
             Copyright © 2023. All rights reserved.
             <i
+              v-if="false"
               @click="login"
               :class="{'el-icon-lock': !isLogged, 'el-icon-unlock': isLogged}"
               class="accent-text pointer"

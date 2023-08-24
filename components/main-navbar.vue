@@ -47,8 +47,6 @@
               <el-menu-item index="/service/cargo">Ship and cargo agency</el-menu-item>
             </el-submenu>
 
-            <el-menu-item index="/pages/schedule">Schedule and rates</el-menu-item>
-
             <el-menu-item index="/pages/contacts">Contacts</el-menu-item>
 
             <el-menu-item index="/pages/about">About us</el-menu-item>
