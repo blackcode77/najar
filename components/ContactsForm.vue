@@ -153,7 +153,7 @@ export default {
           Name: ${this.contactForm.name} \n\n
           Message: ${this.contactForm.message}
           `
-      return this.$mail.send({
+      this.$mail.send({
         from: 'eastarodubtsev@ya.ru',
         subject,
         text: message
@@ -172,7 +172,17 @@ export default {
 
     submitForm() {
       if (this.scenario === 'phone') {
-        this.send()
+        if (this.contactForm?.phone?.length > 5) {
+          this.send()
+        } else {
+          this.$notify({
+            position: 'bottom-right',
+            title: 'Wrong Phone number',
+            message: 'Message not sent',
+            type: 'warning'
+          });
+          return
+        }
         return
       }
 
