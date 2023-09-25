@@ -3,23 +3,29 @@
     <slot>
       <div class="main-info relative-flow">
         <div class="container white">
-          <p
+          <div class="main-text-info">
+            <p
               @click="edit('site.pages.main.sections.top.title1', 'simple')"
               :class="{'editable': editMode}"
               class="main-info_p1 ext-uppercase mb-10">
-            {{ resolveData('site.pages.main.sections.top.title1') }}
-          </p>
+              {{ resolveData('site.pages.main.sections.top.title1') }}
+            </p>
 
-          <p
-            @click="edit('site.pages.main.sections.top.title2', 'simple')"
-            :class="{'editable': editMode}"
-            class="main-info_p2 text-uppercase fz-30 mb-10"
-            style="max-width: 500px; line-height: 1.2em;"
-          >{{ resolveData('site.pages.main.sections.top.title2') }}</p>
+            <p
+              @click="edit('site.pages.main.sections.top.title2', 'simple')"
+              :class="{'editable': editMode}"
+              class="main-info_p2 text-uppercase fz-30 mb-10"
+              style="max-width: 500px; line-height: 1.2em;"
+            >{{ resolveData('site.pages.main.sections.top.title2') }}</p>
 
-          <p @click="edit('site.pages.main.sections.top.title3', 'simple')" :class="{'editable': editMode}" class="main-info_p3 text-uppercase fz-50 bold mb-10">{{ resolveData('site.pages.main.sections.top.title3') }}</p>
+            <p @click="edit('site.pages.main.sections.top.title3', 'simple')" :class="{'editable': editMode}" class="main-info_p3 text-uppercase fz-50 bold mb-10">{{ resolveData('site.pages.main.sections.top.title3') }}</p>
 
-          <p @click="edit('site.pages.main.sections.top.text', 'simple')" :class="{'editable': editMode}" class="main-info_p4">{{ resolveData('site.pages.main.sections.top.text') }}</p>
+            <p @click="edit('site.pages.main.sections.top.text', 'simple')" :class="{'editable': editMode}" class="main-info_p4">{{ resolveData('site.pages.main.sections.top.text') }}</p>
+          </div>
+
+          <div class="call-me">
+            <ContactsForm scenario="phone" />
+          </div>
         </div>
       </div>
     </slot>
@@ -29,10 +35,11 @@
 
 <script>
 import SiteMixin from "@/mixins/page-data-mixin";
+import ContactsForm from '@/components/ContactsForm'
 
 export default {
   name: 'MainSection',
-
+  components: {ContactsForm},
   mixins: [SiteMixin],
 }
 </script>
@@ -40,6 +47,15 @@ export default {
 <style lang="sass">
   .main-info
     padding: 0 30px  100px 100px
+    .container
+      display: flex
+      justify-content: space-between
+  .sm, .xs
+    .main-info
+      .container
+        flex-direction: column
+      .main-text-info
+        padding-bottom: 20px
   .main-info_p4
     max-width: 400px
 

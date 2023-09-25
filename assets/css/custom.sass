@@ -2,6 +2,8 @@
 @import "fonts"
 @import "shortcuts"
 
+.el-dialog__wrapper
+  z-index: 9999990 !important
 .el-loading-spinner
   &.path
     stroke: red
@@ -14,3 +16,9 @@
     &:hover
       background-color: $accent-text
       color: black
+// DIALOG
+.el-dialog
+  border-radius: 10px
+  i
+    &.el-dialog__close
+      font-size: 28px

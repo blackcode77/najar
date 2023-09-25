@@ -98,10 +98,24 @@
             ></i>
           </p>
         </div>
+
+        <div @click="showMessageMeDialog = !showMessageMeDialog" class="message-me pointer">
+          <i class="el-icon-message"></i>
+        </div>
       </div>
     </footer>
 
     <PageElementEditor />
+
+    <el-dialog
+      title="Email us"
+      :visible.sync="showMessageMeDialog"
+      width="500px"
+      :fullscreen="isFullScreenDialog"
+      center>
+      <ContactsForm />
+    </el-dialog>
+
   </div>
   <div class="main-preloader" v-else>
     <i class="el-icon-loading"></i>
@@ -114,14 +128,16 @@ import { mapState } from 'vuex';
 import Navbar from "~/components/main-navbar";
 import SiteMixin from '~/mixins/page-data-mixin'
 import PageElementEditor from "@/components/PageElementEditor";
+import ContactsForm from '@/components/ContactsForm'
 
 export default {
-  components: {PageElementEditor, Navbar},
+  components: {ContactsForm, PageElementEditor, Navbar},
 
   mixins: [SiteMixin],
 
   data: () => ({
     sizeType: null,
+    showMessageMeDialog: false
   }),
 
   computed: {
@@ -131,6 +147,10 @@ export default {
       isDataLoading: state => state.modules.common.site.isLoading,
       isLogged: state => state.modules.common.user.isLogged,
     }),
+
+    isFullScreenDialog() {
+      return this.windowSizeType === 'xs'
+    },
 
     isScrolling() {
       return process.client ? this.isWindowScrolling : false
@@ -228,4 +248,18 @@ export default {
     .el-icon-loading
       font-size: 30px
       color: $accent-text
+  .message-me
+    position: fixed
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 50px
+    height: 50px
+    border-radius: 50px
+    background-color: darkorange
+    bottom: 20px
+    right: 5%
+    i
+      font-size: 23px
+      color: white
 </style>
