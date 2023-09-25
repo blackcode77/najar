@@ -44,7 +44,7 @@ export default {
     'nuxt-icons',
     ['nuxt-mail', {
       message: {
-        to: 'office@najarhk.com ',
+        to: 'office@najarhk.com',
       },
       smtp: {
         host: 'smtp.yandex.ru',
